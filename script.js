@@ -18,13 +18,20 @@ function createGrid(rows, columns) {
     }
 }
 
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 const grid = document.getElementById("grid");
 const reset = document.getElementById("reset-button");
 
 createGrid(16, 16) // For the initial grid when the page is loaded
 
 grid.addEventListener("mouseover", function(e) {
-    e.target.style.backgroundColor = "red";
+    let randomRed = randomInt(1, 255);
+    let randomGreen = randomInt(1, 255);
+    let randomBlue = randomInt(1, 255);
+    e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 })
 
 reset.addEventListener("click", function(e) {
